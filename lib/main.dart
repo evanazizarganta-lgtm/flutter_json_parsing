@@ -53,7 +53,8 @@ class _UserListScreenState extends State<UserListScreen> {
     }
     ''';
 
-    print(jsonString);
+    print('Data JSON username: evan09');
+    print('Data JSON phone: 081234567890');
   }
 
   @override
