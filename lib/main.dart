@@ -39,10 +39,8 @@ class _UserListScreenState extends State<UserListScreen> {
   void initState() {
     super.initState();
 
-    // Mengambil data dari API
     _futureUsers = ApiService.fetchUsers();
 
-    // Contoh JSON String untuk pengujian
     String jsonString = '''
     {
       "id": 1,
@@ -53,8 +51,7 @@ class _UserListScreenState extends State<UserListScreen> {
     }
     ''';
 
-    print('Data JSON username: evan09');
-    print('Data JSON phone: 081234567890');
+    print(jsonString);
   }
 
   @override
@@ -90,9 +87,17 @@ class _UserListScreenState extends State<UserListScreen> {
           }
 
           // Jika data berhasil
-          if (snapshot.hasData && snapshot.data!.isNotEmpty) {
-            List<UserModel> users = snapshot.data!;
-
+         if (snapshot.hasData && snapshot.data!.isNotEmpty) {
+  List<UserModel> users = [
+    UserModel(
+      id: 0,
+      name: 'Evan Aziz Arganta',
+      username: 'evan09',
+      email: 'evan@example.com',
+      phone: '081234567890',
+    ),
+    ...snapshot.data!,
+  ];
             return ListView.builder(
               itemCount: users.length,
               padding: const EdgeInsets.all(8.0),
@@ -107,7 +112,7 @@ class _UserListScreenState extends State<UserListScreen> {
                   ),
                   child: ListTile(
                     leading: CircleAvatar(
-                      backgroundColor: Colors.blueAccent,
+                      backgroundColor: const Color.fromARGB(255, 2, 109, 20),
                       child: Text(
                         user.name[0],
                         style: const TextStyle(

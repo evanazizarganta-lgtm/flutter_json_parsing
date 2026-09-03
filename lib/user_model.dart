@@ -13,7 +13,7 @@ class UserModel {
     required this.phone,
   });
 
-  // Factory constructor: Mengubah Map<String, dynamic> dari JSON ke Objek UserModel
+  
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
       id: json['id'] ?? 0,
@@ -24,7 +24,7 @@ class UserModel {
     );
   }
 
-  // Method: Mengubah Objek UserModel kembali ke Map/JSON
+  
   Map<String, dynamic> toJson() {
     return {
       'id': id,
